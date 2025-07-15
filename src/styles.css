@@ -1,0 +1,224 @@
+/* базовые стили */
+body {
+	font-family: 'Segoe UI', Arial, sans-serif;
+	min-height: 100vh;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.container {
+	background: rgba(255, 255, 255, 0.95);
+	border-radius: 22px;
+	padding: 38px 32px 28px 32px;
+	max-width: 440px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 28px;
+}
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	margin-bottom: 8px;
+}
+h1 {
+	text-align: center;
+	margin-bottom: 0;
+	font-size: 2.1rem;
+	letter-spacing: 0.02em;
+	font-weight: 800;
+	flex: 1;
+}
+.controls {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+#theme-toggle {
+	background: none;
+	border: none;
+	font-size: 1.5em;
+	cursor: pointer;
+	padding: 4px 8px;
+	border-radius: 6px;
+}
+#language-switcher {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	border-radius: 8px;
+	padding: 8px 36px 8px 12px;
+	font-size: 1em;
+	font-weight: 600;
+	outline: none;
+	cursor: pointer;
+	position: relative;
+}
+#language-switcher option {
+	background: #f7fafd;
+	color: #4a5cff;
+	padding: 10px 16px;
+	font-size: 1em;
+	font-weight: 500;
+	transition: background 0.2s, color 0.2s;
+}
+#language-switcher option:checked,
+#language-switcher option:focus,
+#language-switcher option:hover {
+	background: #e0eafc;
+	color: #23243a;
+}
+body.dark #language-switcher option {
+	background: #23243a;
+	color: #88e0ef;
+}
+body.dark #language-switcher option:checked,
+body.dark #language-switcher option:focus,
+body.dark #language-switcher option:hover {
+	background: #2b2d42;
+	color: #88e0ef;
+}
+label {
+	font-weight: 600;
+	color: #4a5cff;
+	margin-bottom: 7px;
+	display: block;
+	letter-spacing: 0.01em;
+	font-size: 1.08em;
+}
+input[type='file'] {
+	display: none;
+}
+.custom-file-label {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	background: linear-gradient(90deg, #6a8cff 0%, #88e0ef 100%);
+	color: #fff;
+	border: none;
+	border-radius: 10px;
+	padding: 12px 22px;
+	font-size: 1.08rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+	box-shadow: 0 2px 12px rgba(106, 140, 255, 0.13);
+	margin: 6px auto 12px auto;
+	width: fit-content;
+	outline: none;
+	user-select: none;
+	justify-content: center;
+}
+.custom-file-label:hover,
+.custom-file-label:focus {
+	background: linear-gradient(90deg, #88e0ef 0%, #6a8cff 100%);
+	box-shadow: 0 4px 18px rgba(106, 140, 255, 0.18);
+	transform: translateY(-2px) scale(1.03);
+}
+.custom-file-label .icon {
+	display: inline-flex;
+	font-size: 1.3em;
+	margin-right: 4px;
+}
+.selected-file-name {
+	margin-left: 10px;
+	font-size: 0.98em;
+	color: #4a5cff;
+	max-width: 180px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Dark theme for file label */
+body.dark .custom-file-label {
+	background: linear-gradient(90deg, #23243a 0%, #6a8cff 100%);
+	color: #fff;
+	box-shadow: 0 2px 12px rgba(40, 60, 120, 0.18);
+}
+body.dark .custom-file-label:hover,
+body.dark .custom-file-label:focus {
+	background: linear-gradient(90deg, #6a8cff 0%, #23243a 100%);
+}
+body.dark .selected-file-name {
+	color: #88e0ef;
+}
+textarea {
+	width: 90%;
+	min-height: 100px;
+	border-radius: 10px;
+	border: 1.5px solid #bfc9d1;
+	padding: 12px;
+	font-size: 1.05rem;
+	resize: vertical;
+	color: #2a2a2a;
+}
+textarea#base64Output,
+textarea#base64Input {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+.btn {
+	border: none;
+	border-radius: 10px;
+	padding: 12px 6px;
+	font-size: 1.15rem;
+	font-weight: 700;
+	cursor: pointer;
+	margin: 6px auto;
+	width: auto;
+	letter-spacing: 0.01em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.preview {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	margin-top: 10px;
+	min-height: 40px;
+}
+.preview img {
+	max-width: 240px;
+	max-height: 200px;
+	border-radius: 14px;
+}
+.note {
+	font-size: 1.05em;
+	color: #6a8cff;
+	text-align: center;
+	margin-top: 8px;
+	border-radius: 8px;
+	padding: 8px 0 6px 0;
+	font-weight: 500;
+	letter-spacing: 0.01em;
+}
+.error {
+	font-weight: 600;
+	font-size: 1.05em;
+	margin-top: 4px;
+	text-align: center;
+	letter-spacing: 0.01em;
+}
+@media (max-width: 500px) {
+	.container {
+		padding: 14px 2px;
+	}
+	h1 {
+		font-size: 1.2rem;
+	}
+	.preview img {
+		max-width: 98vw;
+	}
+}

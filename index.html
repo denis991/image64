@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Base64 Image Converter</title>
+		<link rel="stylesheet" href="src/styles.css?v=1.0.2" />
+		<link rel="stylesheet" href="src/theme.css?v=1.0.2" />
+		<script src="src/script.js?v=1.0.2" defer></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<h1 data-i18n="title">Base64 Image Converter</h1>
+				<div class="controls">
+					<button id="theme-toggle" aria-label="Toggle theme">☀️</button>
+					<select id="language-switcher" aria-label="Select language">
+						<option value="en">🇬🇧 EN</option>
+						<option value="ru">🇷🇺 RU</option>
+						<option value="es">🇪🇸 ES</option>
+					</select>
+				</div>
+			</div>
+			<div>
+				<label for="imgInput" data-i18n="uploadLabel">1. Загрузите изображение</label>
+				<input type="file" id="imgInput" accept="image/*">
+				<label for="imgInput" class="custom-file-label">
+					<span class="icon">📷</span> Загрузить изображение
+					<span class="selected-file-name" id="fileName"></span>
+				</label>
+				<button class="btn" id="toBase64Btn" data-i18n="toBase64Btn">В изображение → Base64</button>
+				<textarea
+					id="base64Output"
+					placeholder="Base64 код появится здесь..."
+					data-i18n-placeholder="base64OutputPlaceholder"
+					readonly
+				></textarea>
+			</div>
+			<div>
+				<label for="base64Input" data-i18n="decodeLabel"
+					>2. Вставьте Base64 для декодирования</label
+				>
+				<textarea
+					id="base64Input"
+					placeholder="Вставьте base64 код..."
+					data-i18n-placeholder="base64InputPlaceholder"
+				></textarea>
+				<button class="btn" id="toImgBtn" data-i18n="toImgBtn">Base64 → В изображение</button>
+				<div class="preview" id="imgPreview"></div>
+			</div>
+			<div class="note" data-i18n="note">
+				Данные не покидают ваш браузер. Всё работает локально и безопасно.
+			</div>
+		</div>
+	</body>
+</html>
