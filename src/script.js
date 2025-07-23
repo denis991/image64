@@ -12,7 +12,8 @@ const translations = {
     note: 'Your data never leaves your browser. Everything works locally and securely.',
     errorNoImage: 'Please select an image.',
     errorNoBase64: 'Enter base64 code.',
-    errorInvalidBase64: 'Invalid base64 code or unsupported format.'
+    errorInvalidBase64: 'Invalid base64 code or unsupported format.',
+    uploadImageLabel: 'Upload image'
   },
   ru: {
     title: 'Конвертер изображений Base64',
@@ -25,7 +26,8 @@ const translations = {
     note: 'Данные не покидают ваш браузер. Всё работает локально и безопасно.',
     errorNoImage: 'Пожалуйста, выберите изображение.',
     errorNoBase64: 'Введите base64 код.',
-    errorInvalidBase64: 'Некорректный base64 код или неподдерживаемый формат.'
+    errorInvalidBase64: 'Некорректный base64 код или неподдерживаемый формат.',
+    uploadImageLabel: 'Загрузить изображение'
   },
   es: {
     title: 'Convertidor de Imágenes Base64',
@@ -38,14 +40,21 @@ const translations = {
     note: 'Tus datos nunca salen de tu navegador. Todo funciona localmente y de forma segura.',
     errorNoImage: 'Por favor, selecciona una imagen.',
     errorNoBase64: 'Introduce el código base64.',
-    errorInvalidBase64: 'Código base64 inválido o formato no soportado.'
+    errorInvalidBase64: 'Código base64 inválido o formato no soportado.',
+    uploadImageLabel: 'Subir imagen'
   }
 };
 
 function updateText(lang) {
   document.querySelectorAll('[data-i18n]').forEach((elem) => {
     const key = elem.getAttribute('data-i18n');
-    if (translations[lang][key]) {
+    if (key === 'uploadImageLabel') {
+      // Обновляем только .upload-label-text внутри label
+      const labelText = elem.querySelector('.upload-label-text');
+      if (labelText && translations[lang][key]) {
+        labelText.textContent = translations[lang][key];
+      }
+    } else if (translations[lang][key]) {
       elem.textContent = translations[lang][key];
     }
   });
